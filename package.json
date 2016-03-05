@@ -4,8 +4,9 @@
   "description": "Utility functions to simplify Pomegranate plugin development.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "NODE_ENV=test tap -R spec --cov test/unit/*.js"
   },
+  "files": ["index.js", "lib/", "Readme.md","LICENSE"],
   "repository": {
     "type": "git",
     "url": "https://github.com/PaperElectron/magnum-plugin-utils.git"
@@ -26,5 +27,8 @@
   "dependencies": {
     "bluebird": "^3.3.3",
     "lodash": "^4.6.1"
+  },
+  "devDependencies": {
+    "tap": "^5.7.0"
   }
 }
