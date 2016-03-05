@@ -1,0 +1,30 @@
+{
+  "name": "magnum-plugin-utils",
+  "version": "0.0.0",
+  "description": "Utility functions to simplify Pomegranate plugin development.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PaperElectron/magnum-plugin-utils.git"
+  },
+  "keywords": [
+    "Magnum",
+    "Pomegranate",
+    "Plugin",
+    "Utilities",
+    "Framework"
+  ],
+  "author": "Jim <monstertke@paperelectron.com> (http://paperelectron.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PaperElectron/magnum-plugin-utils/issues"
+  },
+  "homepage": "https://github.com/PaperElectron/magnum-plugin-utils",
+  "dependencies": {
+    "bluebird": "^3.3.3",
+    "lodash": "^4.6.1"
+  }
+}
