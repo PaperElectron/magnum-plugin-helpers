@@ -12,5 +12,5 @@
  * @module index
  */
 
-exports.fileList = function(){};
-exports.fileListDeep = function(){};
+exports.fileList = require('./lib/fileList');
+exports.fileListDeep = require('./lib/fileListDeep');
