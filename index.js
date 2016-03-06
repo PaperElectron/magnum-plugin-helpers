@@ -13,4 +13,4 @@
  */
 
 exports.fileList = function(){};
-exports.deepfileList = function(){};
+exports.fileListDeep = function(){};
