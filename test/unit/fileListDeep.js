@@ -23,16 +23,43 @@ tap.test('Returns non hidden files recursively.', function(t){
 tap.test('Returns hidden files recursively with correct option set.', function(t){
   t.plan(1)
 
-  fileListDeep('./test/mocks/fileListDeep', true)
+  fileListDeep('./test/mocks/fileListDeep', {hidden: true})
     .then(function(files){
       t.equal(files.length, 5,  'Has 3 non hidden file, one hidden dir, and one hidden file');
+    });
+})
+
+tap.test('Returns non hidden files recursively with extension set.', function(t){
+  t.plan(1)
+
+  fileListDeep('./test/mocks/fileListDeepExt', {ext: '.js'})
+    .then(function(files){
+      t.equal(files.length, 3,  'Has 3 non hidden .js files');
+    });
+})
+
+tap.test('Returns hidden files recursively with extension set.', function(t){
+  t.plan(1)
+
+  fileListDeep('./test/mocks/fileListDeepExt', {hidden: true, ext: '.js'})
+    .then(function(files){
+      t.equal(files.length, 5,  'Has 5 non hidden .js files');
+    });
+})
+
+tap.test('Returns empty array when no matching extensions found.', function(t){
+  t.plan(1)
+
+  fileListDeep('./test/mocks/fileListDeepExt', {hidden: true, ext: '.py'})
+    .then(function(files){
+      t.equal(files.length, 0,  'Has 0 matching files.');
     });
 })
 
 tap.test('Throws with bad path', function(t){
   t.plan(1)
 
-  fileListDeep('./nope/not/gonna/work', true)
+  fileListDeep('./nope/not/gonna/work', {hidden: true})
     .catch(function(err){
       t.ok(err, 'Has Error');
     })

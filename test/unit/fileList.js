@@ -22,7 +22,7 @@ tap.test('Returns non hidden files.', function(t){
 tap.test('Returns hidden files with correct option.', function(t){
   t.plan(3)
 
-  fileList('./test/mocks/fileList', true)
+  fileList('./test/mocks/fileList', {hidden: true})
     .then(function(files){
       t.equal(files.length, 2,  'Has one non hidden file, and one hidden file');
       t.equal(files[0], '.hidden');
@@ -30,11 +30,31 @@ tap.test('Returns hidden files with correct option.', function(t){
     });
 })
 
+tap.test('Filters based on file extension', function(t){
+  t.plan(3)
+  fileList('./test/mocks/fileListExt')
+    .then(function(files) {
+      t.equal(files.length, 5, 'Has five files with default settings.')
+    })
+
+  fileList('./test/mocks/fileListExt', {ext: '.js'})
+    .then(function(files) {
+      t.equal(files.length, 3, 'Has 3 files with .js extension set')
+    })
+
+  fileList('./test/mocks/fileListExt', {hidden: true, ext: '.js'})
+    .then(function(files) {
+      t.equal(files.length, 4, 'Has 4 files with .js extension set, and hidden = true')
+    })
+
+})
+
 tap.test('Throws with bad path', function(t){
   t.plan(1)
 
-  fileList('./nope/not/gonna/work', true)
+  fileList('./nope/not/gonna/work')
     .catch(function(err){
       t.ok(err, 'Has Error');
     })
 })
+
