@@ -31,7 +31,8 @@
   "homepage": "https://github.com/PaperElectron/magnum-plugin-utils",
   "dependencies": {
     "bluebird": "^3.3.3",
-    "lodash": "^4.6.1"
+    "lodash": "^4.6.1",
+    "path-parse": "^1.0.5"
   },
   "devDependencies": {
     "tap": "^5.7.0"
