@@ -14,6 +14,7 @@
 
 exports.fileList = require('./lib/fileList');
 exports.fileListDeep = require('./lib/fileListDeep');
+exports.fileBaseName = require('./lib/fileBaseName');
 
 exports.lodash = require('lodash');
 exports.bluebird = require('bluebird');
