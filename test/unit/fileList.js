@@ -49,6 +49,24 @@ tap.test('Filters based on file extension', function(t){
 
 })
 
+tap.test('Returns Directories only when options.directories = true', function(t) {
+  t.plan(1)
+  fileList('./test/mocks/dirList', {directories: true})
+    .then(function(files) {
+      t.equal(files.length, 4, 'Finds the correct number of directories')
+    })
+
+})
+
+tap.test('Returns hidden Directories when options.directories = true and options.hidden = true', function(t) {
+  t.plan(1)
+
+  fileList('./test/mocks/dirList', {hidden: true, directories: true})
+    .then(function(files) {
+      t.equal(files.length, 5)
+    })
+})
+
 tap.test('Throws with bad path', function(t){
   t.plan(1)
 
